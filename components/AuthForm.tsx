@@ -6,6 +6,7 @@ import Image from 'next/image';
 import CustomInput from './CustomInput';
 import { Loader2 } from 'lucide-react';
 import { useRouter } from "next/navigation";
+import PlaidLink from './PlaidLink';
 
 import { zodResolver } from "@hookform/resolvers/zod";
 import { useForm } from "react-hook-form";
@@ -106,9 +107,9 @@ const AuthForm = ({ type }: { type: 'sign-in' | 'sign-up' }) => {
                 </div>
             </header>
 
-            { user ? (
+            { !!user ? (
                 <div className='flex flex-col gap-4'>
-                    {/* Plaid Link */}
+                    <PlaidLink user={ user } variant="primary" />
                 </div>
             ) : (
                 <div className=''>
